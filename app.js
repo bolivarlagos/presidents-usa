@@ -17,18 +17,20 @@ const getData = async () => {
         let presidents = $('td > b > a')
         
         for(let president of presidents){
+            
             let presidentInfo = {
                 name: president.attribs.title,
-                page: rootUrl + president.attribs.href,
-                number: listOfPresidents.length + 1
+                bio: rootUrl + president.attribs.href,  
+                number: listOfPresidents.length + 1              
             }
             listOfPresidents.push(presidentInfo)
         }
-        console.log(listOfPresidents)        
+        console.log(listOfPresidents)
+        return listOfPresidents
 
     } catch (error) {
         console.log(error)        
     }
 }
 
-getData()
+module.exports = getData
